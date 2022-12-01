@@ -9,6 +9,10 @@ import Products from './pages/Products/Products';
 import NewProducts from './pages/Products/NewProducts';
 import ProductDetail from './pages/Products/ProductDetail';
 import Carts from './pages/Carts';
+import { auth } from './api/firebase';
+import AuthProvider from './lib/context/authProvider';
+
+console.log(auth);
 
 const router = createBrowserRouter([
   {
@@ -30,6 +34,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
