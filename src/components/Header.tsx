@@ -8,10 +8,13 @@ import {
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../lib/context/authContext';
 import { SignInGoogle, SignOut } from '../service/auth/signInGoogle';
+import Category from './ProductsCatgory';
 import {
+  AuthButton,
   HeaderContainer,
   Logo,
   ProductsCategory,
+  StyledLink,
   UserAvatar,
   UserNav,
 } from './styleComponents/styleComponents';
@@ -21,20 +24,20 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Link to='/' style={{ textDecoration: 'none' }}>
-        <Logo>ohtmm pottery</Logo>
+        <Logo>DAON</Logo>
       </Link>
-      <ProductsCategory>
-        <li>mug</li>
-        <li>plate</li>
-        <li>bowl</li>
-      </ProductsCategory>
+      <Category />
       <UserNav>
-        <Link to='/carts'>
-          <BsCart4 />
-        </Link>
-        <Link to='/products/new'>
-          <RiAddBoxLine />
-        </Link>
+        {user && (
+          <StyledLink to='/carts'>
+            <BsCart4 />
+          </StyledLink>
+        )}
+        {user?.uid === `${process.env.REACT_APP_FIREBASE_ADMIN_UID}` && (
+          <StyledLink to='/products/new'>
+            <RiAddBoxLine />
+          </StyledLink>
+        )}
         {user && (
           <UserAvatar>
             <span>{user.displayName}</span>
@@ -42,13 +45,13 @@ const Header = () => {
           </UserAvatar>
         )}
         {!user ? (
-          <button onClick={SignInGoogle}>
+          <AuthButton onClick={SignInGoogle}>
             <RiUserReceivedLine />
-          </button>
+          </AuthButton>
         ) : (
-          <button onClick={SignOut}>
-            <RiUserSharedFill />
-          </button>
+          <AuthButton onClick={SignOut}>
+            <div>out</div>
+          </AuthButton>
         )}
       </UserNav>
     </HeaderContainer>

@@ -9,10 +9,9 @@ import Products from './pages/Products/Products';
 import NewProducts from './pages/Products/NewProducts';
 import ProductDetail from './pages/Products/ProductDetail';
 import Carts from './pages/Carts';
-import { auth } from './api/firebase';
 import AuthProvider from './lib/context/authProvider';
 
-console.log(auth);
+// privateRoute 공통 설정 어떻게 하지?
 
 const router = createBrowserRouter([
   {
