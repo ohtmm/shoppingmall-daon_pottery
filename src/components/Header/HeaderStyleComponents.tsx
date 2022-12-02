@@ -46,13 +46,12 @@ export const CategorySub = styled.ul`
     height: 1rem;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
-    border-bottom: 1px solid #fff;
     color: #222;
     background-color: #fff;
     border-radius: 20px;
     :hover {
-      background-color: #222;
-      color: #fff;
+      background-color: ${(props) => props.theme.color.black};
+      color: ${(props) => props.theme.color.white};
     }
   }
 `;
@@ -88,16 +87,16 @@ export const AuthButton = styled.button`
   position: absolute;
   top: -1rem;
   right: -1rem;
-  width: 4rem;
+  width: 3rem;
   height: 4rem;
   font-size: 1rem;
-  color: #fff;
-  background-color: #000;
+  background-color: ${(props) => props.theme.color.black};
   border: none;
   outline: 1px solid #222;
   border-radius: 100%;
   cursor: pointer;
   div {
+    color: ${(props) => props.theme.color.white};
     width: 0.5rem;
     height: 1rem;
   }

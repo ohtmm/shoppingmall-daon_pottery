@@ -1,6 +1,6 @@
 import { AuthContext } from '../lib/context/authContext';
 import { useContext } from 'react';
-import Home from '../pages/Home';
+import Home from '../pages/Home/Home';
 
 type PrivateRouterProps = {
   children: React.ReactNode | undefined;

@@ -3,13 +3,13 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     color: {
-      bgBtnDelete: string;
-      bgBtnUpdate: string;
-      primary: string;
-      secondary: string;
-      bgBtnAdd: string;
-      textBtnAdd: string;
-      bgInputEdit: string;
+      vanilla: string;
+      brown: string;
+      black: string;
+      green: string;
+      white: string;
+      darkGray: string;
+      darkPink: string;
       textPrimary: string;
     };
   }

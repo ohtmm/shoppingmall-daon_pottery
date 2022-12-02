@@ -1,7 +1,4 @@
-import {
-  CategorySub,
-  ProductsCategory,
-} from './styleComponents/styleComponents';
+import { CategorySub, ProductsCategory } from './Header/HeaderStyleComponents';
 
 const Category = () => {
   return (
