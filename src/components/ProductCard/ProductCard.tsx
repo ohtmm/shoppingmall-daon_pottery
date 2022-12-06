@@ -1,5 +1,5 @@
 import { ProductCardContainer } from './ProductStyledComponent';
-
+import { BsBookmarkHeart } from 'react-icons/bs';
 type TProductCard = {
   productImg: string;
   productName: string;
@@ -19,6 +19,9 @@ const ProductCard = ({
       <div className='title'>
         <h2 className='name'>{productName}</h2>
         <span className='price'>{productPrice}</span>
+        <span className='bookMark'>
+          <BsBookmarkHeart />
+        </span>
       </div>
       <p className='desc'>{productDescription}</p>
     </ProductCardContainer>

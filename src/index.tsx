@@ -6,13 +6,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home/Home';
 import Products from './pages/Products/Products';
-import NewProducts from './pages/Products/NewProducts';
 import ProductDetail from './pages/Products/ProductDetail';
-import Carts from './pages/Carts';
 import AuthProvider from './lib/context/authProvider';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { LightTheme } from './styles/theme';
+import UserCart from './pages/UserCart';
+import NewProducts from './pages/Products/NewProducts';
 
 // privateRoute 공통 설정 어떻게 하지?
 
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       { path: '/products', element: <Products /> },
       { path: '/products/new', element: <NewProducts /> },
       { path: '/products/:id', element: <ProductDetail /> },
-      { path: '/carts', element: <Carts /> },
+      { path: '/carts', element: <UserCart /> },
     ],
   },
 ]);

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BsCart4 } from 'react-icons/bs';
+import { BsCart4, BsBookmarkHeart } from 'react-icons/bs';
 import { RiAddBoxLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../lib/context/authContext';
@@ -24,9 +24,14 @@ const Header = () => {
       <Category />
       <UserNav>
         {user && (
-          <StyledLink to='/carts'>
-            <BsCart4 />
-          </StyledLink>
+          <>
+            <StyledLink to='/carts'>
+              <BsCart4 />
+            </StyledLink>
+            <StyledLink to='/bookmark'>
+              <BsBookmarkHeart />
+            </StyledLink>
+          </>
         )}
         {user?.uid === `${process.env.REACT_APP_FIREBASE_ADMIN_UID}` && (
           <StyledLink to='/products/new'>

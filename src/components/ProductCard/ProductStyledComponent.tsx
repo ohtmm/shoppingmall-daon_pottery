@@ -8,6 +8,7 @@ export const ProductCardContainer = styled.div`
   .productImg {
     display: block;
     width: 100%;
+    cursor: pointer;
   }
   .desc {
     width: 80%;
@@ -34,4 +35,14 @@ export const ProductCardContainer = styled.div`
     background-color: ${(props) => props.theme.color.brown};
     border-radius: 100%;
   }
+
+  .bookMark {
+    position: absolute;
+    right: 1.3rem;
+    bottom: -3.5rem;
+    font-size: large;
+    cursor: pointer;
+  }
 `;
+
+//

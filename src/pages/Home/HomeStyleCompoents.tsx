@@ -8,14 +8,20 @@ export const HomeLayout = styled.section`
 `;
 
 export const HomeContents = styled.article`
+  position: relative;
   width: 30%;
   img {
     display: block;
     width: 100%;
   }
   &:after {
-    content: 'hi';
-    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: #bbbbbb43;
   }
 `;
 

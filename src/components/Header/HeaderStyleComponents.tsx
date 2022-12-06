@@ -59,7 +59,7 @@ export const CategorySub = styled.ul`
 export const UserNav = styled.nav`
   display: flex;
   justify-content: space-around;
-  width: 12rem;
+  width: 14rem;
   margin-right: 2rem;
   font-size: x-large;
 `;
