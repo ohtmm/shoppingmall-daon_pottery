@@ -12,7 +12,7 @@ import { GlobalStyle } from './styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { LightTheme } from './styles/theme';
 import UserCart from './pages/UserCart';
-import NewProducts from './pages/Products/NewProducts';
+import NewProducts from './pages/Products/NewProducts/NewProducts';
 
 // privateRoute 공통 설정 어떻게 하지?
 

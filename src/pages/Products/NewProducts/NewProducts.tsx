@@ -1,25 +1,31 @@
 import { useState } from 'react';
-import setDataBase from '../../service/db/setDatabase';
+import setStorage from '../../../service/db/setStorage';
+import { v4 as uuid } from 'uuid';
+import setDatabase from '../../../service/db/setDatabase';
+import { NewProductsContainer } from './NewProductsStyleComponents';
 
 export type TimageUploaded = File | null;
 export type TProduct = {
+  id?: string;
   name?: string;
   price?: number;
   description?: string;
   photoURL?: string | null;
 };
 const NewProducts = () => {
-  const [imageUploaded, setImageUploaded] = useState<TimageUploaded>(null);
   const [uploading, setUploading] = useState(false);
   const [product, setProduct] = useState<TProduct | null>(null);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const regist = { ...product, id: uuid() };
+    setProduct(regist);
+    setDatabase(regist);
   };
 
   const handleAddImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setUploading(true);
     if (e.target.files) {
-      setDataBase(e.target.files[0])
+      setStorage(e.target.files[0])
         .then((url) => {
           const uploaded = { ...product, photoURL: url };
           setProduct(uploaded);
@@ -34,8 +40,15 @@ const NewProducts = () => {
     setProduct(updated);
   };
   return (
-    <div>
-      <h2>add Product</h2>
+    <NewProductsContainer>
+      <h2>
+        상품을 등록해주세요
+        {product?.photoURL && (
+          <div className='uploadedImg'>
+            <img src={`${product.photoURL}`} alt='uploaded image' />
+          </div>
+        )}
+      </h2>
       <form onSubmit={handleSubmit}>
         <input
           type='text'
@@ -64,23 +77,11 @@ const NewProducts = () => {
           accept='image/*'
           required
           onChange={handleAddImage}
+          className='imageUploader'
         />
-        <button type='submit'>추가</button>
+        {!uploading && <button type='submit'>등록</button>}
       </form>
-
-      {product?.photoURL && (
-        <div>
-          <img
-            src={`${product.photoURL}`}
-            alt='uploaded image'
-            style={{
-              display: 'block',
-              width: '100px',
-            }}
-          />
-        </div>
-      )}
-    </div>
+    </NewProductsContainer>
   );
 };
 export default NewProducts;
