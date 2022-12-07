@@ -5,7 +5,8 @@ import { TProduct } from '../../pages/Products/NewProducts/NewProducts';
 const repo = new RepositoryImpl();
 const setDatabase = (product: TProduct) => {
   const db = getDatabase();
-  set(ref(db, 'products/' + `${repo.dataLength++}`), product);
+  repo.countData();
+  set(ref(db, 'products/' + `${repo.dataLength}`), product);
 };
 
 export default setDatabase;

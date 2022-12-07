@@ -11,7 +11,7 @@ const Category = () => {
         </CategorySub>
       </li>
       <li>
-        plate
+        base
         <CategorySub>
           <li>일자형</li>
           <li>둥근형</li>

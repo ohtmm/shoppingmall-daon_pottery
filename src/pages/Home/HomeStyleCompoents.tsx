@@ -24,14 +24,3 @@ export const HomeContents = styled.article`
     background-color: #bbbbbb43;
   }
 `;
-
-export const HomeProducts = styled.article`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 70%;
-  border-right: 1px solid #000;
-`;
-
-export const HomeProduct = styled.div`
-  border-left: 1px solid ${(props) => props.theme.color.black};
-`;

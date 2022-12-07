@@ -14,7 +14,6 @@ const ProductProvider = ({ children }: ContextProviderProps) => {
   }, []);
   const value = {
     products: productsDB,
-    setProducts: setProductsDB,
   };
   return (
     <ProductsContext.Provider value={value}>

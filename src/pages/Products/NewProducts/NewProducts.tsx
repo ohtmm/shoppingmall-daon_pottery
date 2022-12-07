@@ -3,6 +3,8 @@ import setStorage from '../../../service/db/setStorage';
 import { v4 as uuid } from 'uuid';
 import setDatabase from '../../../service/db/setDatabase';
 import { NewProductsContainer } from './NewProductsStyleComponents';
+import { useContext } from 'react';
+import { ProductsContext } from '../../../lib/context/productsContext';
 
 export type TimageUploaded = File | null;
 export type TProduct = {
@@ -11,25 +13,20 @@ export type TProduct = {
   price?: number;
   description?: string;
   photoURL?: string | null;
-  idx?: number;
+  category?: string;
 };
 const NewProducts = () => {
+  const value = useContext(ProductsContext);
   const [uploading, setUploading] = useState(false);
-  const [product, setProduct] = useState<TProduct | null>({
-    id: '',
-    name: '',
-    price: 0,
-    description: '',
-    photoURL: '',
-  });
+  const [product, setProduct] = useState<TProduct | null>(initialized);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const regist = {
       ...product,
       id: uuid(),
     };
-    setProduct(regist);
     setDatabase(regist);
+    setProduct(initialized);
   };
 
   const handleAddImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,6 +68,7 @@ const NewProducts = () => {
           placeholder='제품 이름은 무엇인가요?'
           value={product?.name}
           onChange={handleInput}
+          required
         />
         <input
           type='text'
@@ -78,12 +76,15 @@ const NewProducts = () => {
           placeholder='제품 가격은 얼마인가요?'
           value={product?.price}
           onChange={handleInput}
+          required
         />
-        <select onChange={handleSelect}>
+        <select onChange={handleSelect} value={product?.category}>
+          <option defaultChecked value='none'>
+            none
+          </option>
           <option value='mug'>mug</option>
-          <option value='plate'>plate</option>
-          <option value='bowl'>bowl</option>
           <option value='base'>base</option>
+          <option value='bowl'>bowl</option>
         </select>
         <input
           type='textarea'
@@ -91,6 +92,7 @@ const NewProducts = () => {
           placeholder='제품을 설명해주세요'
           value={product?.description}
           onChange={handleInput}
+          required
         />
 
         <input
@@ -108,3 +110,12 @@ const NewProducts = () => {
   );
 };
 export default NewProducts;
+
+const initialized = {
+  id: '',
+  name: '',
+  price: 0,
+  description: '',
+  photoURL: '',
+  category: 'none',
+};
