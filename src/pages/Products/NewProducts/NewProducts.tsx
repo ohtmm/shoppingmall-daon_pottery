@@ -11,13 +11,23 @@ export type TProduct = {
   price?: number;
   description?: string;
   photoURL?: string | null;
+  idx?: number;
 };
 const NewProducts = () => {
   const [uploading, setUploading] = useState(false);
-  const [product, setProduct] = useState<TProduct | null>(null);
+  const [product, setProduct] = useState<TProduct | null>({
+    id: '',
+    name: '',
+    price: 0,
+    description: '',
+    photoURL: '',
+  });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const regist = { ...product, id: uuid() };
+    const regist = {
+      ...product,
+      id: uuid(),
+    };
     setProduct(regist);
     setDatabase(regist);
   };
@@ -38,6 +48,11 @@ const NewProducts = () => {
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const updated = { ...product, [e.target.name]: e.target.value };
     setProduct(updated);
+  };
+
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selected = { ...product, category: e.target.value };
+    setProduct(selected);
   };
   return (
     <NewProductsContainer>
@@ -64,6 +79,12 @@ const NewProducts = () => {
           value={product?.price}
           onChange={handleInput}
         />
+        <select onChange={handleSelect}>
+          <option value='mug'>mug</option>
+          <option value='plate'>plate</option>
+          <option value='bowl'>bowl</option>
+          <option value='base'>base</option>
+        </select>
         <input
           type='textarea'
           name='description'
@@ -71,6 +92,7 @@ const NewProducts = () => {
           value={product?.description}
           onChange={handleInput}
         />
+
         <input
           type='file'
           id='image'
@@ -79,6 +101,7 @@ const NewProducts = () => {
           onChange={handleAddImage}
           className='imageUploader'
         />
+
         {!uploading && <button type='submit'>등록</button>}
       </form>
     </NewProductsContainer>

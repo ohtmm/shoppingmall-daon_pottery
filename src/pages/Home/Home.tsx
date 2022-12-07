@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import { ProductsContext } from '../../lib/context/productsContext';
 import {
   HomeContents,
   HomeLayout,
@@ -7,6 +9,7 @@ import {
 } from './HomeStyleCompoents';
 
 const Home = () => {
+  const value = useContext(ProductsContext);
   return (
     <HomeLayout>
       <HomeContents>
@@ -17,18 +20,17 @@ const Home = () => {
       </HomeContents>
       <HomeProducts>
         <HomeProduct>
-          <ProductCard
-            productImg='./images/product_base.jpg'
-            productName='바닐라 링'
-            productDescription='바닐라 슈크림이 잔뜩 들어간 도넛을 먹는 달달함을 선사하는 링 베이스'
-            productPrice={52000}
-          />
-          <ProductCard
-            productImg='./images/product_base2.jpg'
-            productName='모카 콘트라베이스'
-            productDescription='둥둥 울리는 콘트라베이스가 들려올 것만 같은 짙은 모카 컬러의 베이스'
-            productPrice={52000}
-          />
+          {value?.products?.map((product) => {
+            return (
+              <ProductCard
+                key={product.id}
+                productImg={product.photoURL}
+                productName={product.name}
+                productDescription={product.description}
+                productPrice={product.price}
+              />
+            );
+          })}
         </HomeProduct>
         <HomeProduct>
           <ProductCard

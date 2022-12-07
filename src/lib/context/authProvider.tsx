@@ -3,7 +3,7 @@ import { adminUser, auth } from '../../api/firebase';
 import { AuthContext } from './authContext';
 import { User } from 'firebase/auth';
 
-type AuthProviderProps = {
+export type ContextProviderProps = {
   children: ReactNode;
 };
 
@@ -11,7 +11,7 @@ export interface updatedUser extends User {
   isAdmin?: boolean;
 }
 
-const AuthProvider = ({ children }: AuthProviderProps) => {
+const AuthProvider = ({ children }: ContextProviderProps) => {
   const [user, setUser] = useState<updatedUser | null>(null);
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {

@@ -1,10 +1,11 @@
 import { ProductCardContainer } from './ProductStyledComponent';
 import { BsBookmarkHeart } from 'react-icons/bs';
 type TProductCard = {
-  productImg: string;
-  productName: string;
-  productDescription: string;
-  productPrice: number;
+  productImg?: string | null;
+  productName?: string;
+  productDescription?: string;
+  productPrice?: number;
+  key?: string;
 };
 
 const ProductCard = ({
@@ -15,7 +16,9 @@ const ProductCard = ({
 }: TProductCard) => {
   return (
     <ProductCardContainer>
-      <img className='productImg' src={productImg} alt={productName} />
+      {productImg && (
+        <img className='productImg' src={productImg} alt={productName} />
+      )}
       <div className='title'>
         <h2 className='name'>{productName}</h2>
         <span className='price'>{productPrice}</span>

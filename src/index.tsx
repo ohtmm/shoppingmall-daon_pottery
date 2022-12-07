@@ -13,6 +13,7 @@ import { ThemeProvider } from 'styled-components';
 import { LightTheme } from './styles/theme';
 import UserCart from './pages/UserCart';
 import NewProducts from './pages/Products/NewProducts/NewProducts';
+import ProductProvider from './lib/context/productsProvider';
 
 // privateRoute 공통 설정 어떻게 하지?
 
@@ -37,10 +38,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <ThemeProvider theme={LightTheme}>
-        <GlobalStyle />
-        <RouterProvider router={router} />
-      </ThemeProvider>
+      <ProductProvider>
+        <ThemeProvider theme={LightTheme}>
+          <GlobalStyle />
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </ProductProvider>
     </AuthProvider>
   </React.StrictMode>
 );
