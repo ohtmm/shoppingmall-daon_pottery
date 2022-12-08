@@ -21,6 +21,13 @@ export const HomeContents = styled.article`
     width: 100%;
     height: 100%;
     content: '';
-    background-color: #bbbbbb43;
+    background-color: #111010a9;
   }
+`;
+
+export const ProductCardsContainer = styled.article`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 70%;
+  border-right: 1px solid #000;
 `;

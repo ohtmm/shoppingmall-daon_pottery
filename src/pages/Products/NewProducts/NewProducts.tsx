@@ -2,7 +2,7 @@ import { useState } from 'react';
 import setStorage from '../../../service/db/setStorage';
 import { v4 as uuid } from 'uuid';
 import setDatabase from '../../../service/db/setDatabase';
-import { NewProductsContainer } from './NewProductsStyleComponents';
+import { NewProductsContainer } from './StyleComponents';
 import { useContext } from 'react';
 import { ProductsContext } from '../../../lib/context/productsContext';
 

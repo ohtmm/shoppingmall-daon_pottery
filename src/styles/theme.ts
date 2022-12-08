@@ -5,6 +5,7 @@ export const LightTheme: DefaultTheme = {
     vanilla: '#d1ab0060',
     brown: '#675600',
     black: '#222',
+    darkBlack: '#161010f3',
     darkGray: '#434343',
     white: '#fff',
     green: '#fff',

@@ -4,7 +4,7 @@ import { RiAddBoxLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../lib/context/authContext';
 import { SignInGoogle, SignOut } from '../../service/auth/signInGoogle';
-import Category from '../ProductsCatgory';
+import Category from '../Category';
 import {
   AuthButton,
   HeaderContainer,
@@ -12,7 +12,7 @@ import {
   StyledLink,
   UserAvatar,
   UserNav,
-} from './HeaderStyleComponents';
+} from './StyleComponents';
 
 const Header = () => {
   const user = useContext(AuthContext);

@@ -5,7 +5,7 @@ import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home/Home';
-import Products from './pages/Products/Products';
+import Products from './pages/Products/Products/Products';
 import ProductDetail from './pages/Products/ProductDetail';
 import AuthProvider from './lib/context/authProvider';
 import { GlobalStyle } from './styles/GlobalStyle';
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, path: '/', element: <Home /> },
-      { path: '/products', element: <Products /> },
+      { path: '/products/:category', element: <Products /> },
       { path: '/products/new', element: <NewProducts /> },
       { path: '/products/:id', element: <ProductDetail /> },
       { path: '/carts', element: <UserCart /> },

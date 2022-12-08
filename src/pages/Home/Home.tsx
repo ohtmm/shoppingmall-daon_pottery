@@ -1,23 +1,19 @@
 import { useContext } from 'react';
-import ProductCard from '../../components/ProductCard/ProductCard';
-import { ProductCardsContainer } from '../../components/ProductCards/ProductCardsStyledComponents';
-import ProductCards from '../../components/ProductCards/ProductCars';
+import ProductCards from '../../components/ProductCards/ProductCards';
 import { ProductsContext } from '../../lib/context/productsContext';
+import { sortProducts } from '../../lib/utils/sortProducts';
 import { TProduct } from '../Products/NewProducts/NewProducts';
-import { HomeContents, HomeLayout } from './HomeStyleCompoents';
-
-const sortProducts = (products?: TProduct[] | null, categoryName?: string) => {
-  const filtered = products?.filter(
-    (product) => product.category === categoryName
-  );
-  return filtered;
-};
+import {
+  HomeContents,
+  HomeLayout,
+  ProductCardsContainer,
+} from './StyleComponents';
 
 const Home = () => {
-  const value = useContext(ProductsContext);
-  const bases = sortProducts(value?.products, 'base');
-  const mugs = sortProducts(value?.products, 'mug');
-  const bowls = sortProducts(value?.products, 'bowl');
+  const products = useContext(ProductsContext);
+  const bases = sortProducts(products, 'base');
+  const mugs = sortProducts(products, 'mug');
+  const bowls = sortProducts(products, 'bowl');
   return (
     <HomeLayout>
       <HomeContents>

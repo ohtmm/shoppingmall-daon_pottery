@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import App from '../../App';
 
 // Header
 export const HeaderContainer = styled.header`
@@ -8,12 +7,14 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 4rem;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid ${(props) => props.theme.color.darkBlack};
+  color: ${(props) => props.theme.color.white};
+  background-color: ${(props) => props.theme.color.darkBlack};
 `;
 
 export const Logo = styled.h1`
   font-size: xx-large;
-  color: #222;
+  color: ${(props) => props.theme.color.white};
   margin: 0 0 0 2rem;
 `;
 
@@ -28,33 +29,36 @@ export const ProductsCategory = styled.ul`
   li {
     margin-right: 1rem;
     transition: all 0.5s linear;
+    color: ${(props) => props.theme.color.white};
+    margin-right: 2rem;
     :hover {
-      transform: scale(1.2);
+      color: ${(props) => props.theme.color.vanilla};
+      text-decoration: underline;
     }
   }
 `;
 
-export const CategorySub = styled.ul`
-  list-style: none;
-  font-size: small;
-  opacity: 0;
-  transition: all 0.5s linear;
-  :hover {
-    opacity: 1;
-  }
-  li {
-    height: 1rem;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    color: #222;
-    background-color: #fff;
-    border-radius: 20px;
-    :hover {
-      background-color: ${(props) => props.theme.color.black};
-      color: ${(props) => props.theme.color.white};
-    }
-  }
-`;
+// export const CategorySub = styled.ul`
+//   list-style: none;
+//   font-size: small;
+//   opacity: 0;
+//   transition: all 0.5s linear;
+//   :hover {
+//     opacity: 1;
+//   }
+//   li {
+//     height: 1rem;
+//     margin-bottom: 0.5rem;
+//     padding: 0.5rem;
+//     color: #222;
+//     background-color: #${(props) => props.theme.color.white};
+//     border-radius: 20px;
+//     :hover {
+//       background-color: ${(props) => props.theme.color.black};
+//       color: ${(props) => props.theme.color.white};
+//     }
+//   }
+// `;
 
 export const UserNav = styled.nav`
   display: flex;
@@ -90,13 +94,12 @@ export const AuthButton = styled.button`
   width: 3rem;
   height: 4rem;
   font-size: 1rem;
-  background-color: ${(props) => props.theme.color.black};
+  background-color: ${(props) => props.theme.color.white};
   border: none;
-  outline: 1px solid #222;
   border-radius: 100%;
   cursor: pointer;
   div {
-    color: ${(props) => props.theme.color.white};
+    color: ${(props) => props.theme.color.darkBlack};
     width: 0.5rem;
     height: 1rem;
   }
@@ -110,5 +113,6 @@ export const StyledLink = styled(Link)`
   height: 2rem;
   margin: 0 0.5rem;
   font-size: medium;
-  color: #222;
+  color: ${(props) => props.theme.color.white};
+  cursor: pointer;
 `;

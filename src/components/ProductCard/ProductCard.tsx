@@ -1,4 +1,4 @@
-import { ProductCardContainer } from './ProductStyledComponent';
+import { ProductCardContainer } from './StyleComponents';
 import { BsBookmarkHeart } from 'react-icons/bs';
 type TProductCard = {
   productImg?: string | null;

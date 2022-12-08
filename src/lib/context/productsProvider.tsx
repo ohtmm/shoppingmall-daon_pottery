@@ -12,11 +12,8 @@ const ProductProvider = ({ children }: ContextProviderProps) => {
   useEffect(() => {
     repo.readData(setProductsDB);
   }, []);
-  const value = {
-    products: productsDB,
-  };
   return (
-    <ProductsContext.Provider value={value}>
+    <ProductsContext.Provider value={productsDB}>
       {children}
     </ProductsContext.Provider>
   );

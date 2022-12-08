@@ -4,7 +4,10 @@ export const ProductCardContainer = styled.div`
   width: 100%;
   padding: 1rem;
   box-sizing: border-box;
-
+  transition: all 0.5s linear;
+  :hover {
+    transform: scale(1.02);
+  }
   .productImg {
     display: block;
     width: 100%;
