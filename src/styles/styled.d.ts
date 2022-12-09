@@ -10,7 +10,7 @@ declare module 'styled-components' {
       white: string;
       darkGray: string;
       darkPink: string;
-      textPrimary: string;
+      deepOrange: string;
       darkBlack: string;
     };
   }

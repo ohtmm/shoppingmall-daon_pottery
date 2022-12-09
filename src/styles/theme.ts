@@ -10,6 +10,6 @@ export const LightTheme: DefaultTheme = {
     white: '#fff',
     green: '#fff',
     darkPink: '#be00009f',
-    textPrimary: '#222',
+    deepOrange: '#fa6b12cc',
   },
 };
