@@ -1,21 +1,35 @@
 import { ProductCardContainer } from './StyleComponents';
 import { BsBookmarkHeart } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 type TProductCard = {
   productImg?: string | null;
   productName?: string;
   productDescription?: string;
   productPrice?: number;
-  key?: string;
+  productId?: string;
 };
 
 const ProductCard = ({
+  productId,
   productImg,
   productName,
   productDescription,
   productPrice,
 }: TProductCard) => {
+  const navigator = useNavigate();
+  const handleClick = (productId?: string) => {
+    navigator(`products/base/${productId}`, {
+      state: {
+        id: productId,
+      },
+    });
+  };
   return (
-    <ProductCardContainer>
+    <ProductCardContainer
+      onClick={() => {
+        handleClick(productId);
+      }}
+    >
       {productImg && (
         <img className='productImg' src={productImg} alt={productName} />
       )}
