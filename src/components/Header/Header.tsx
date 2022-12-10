@@ -17,7 +17,7 @@ import {
 
 const Header = () => {
   const user = useContext(AuthContext);
-  const data = useContext(ProductsContext);
+  const productsDB = useContext(ProductsContext);
   return (
     <HeaderContainer>
       <Link to='/' style={{ textDecoration: 'none' }}>
@@ -29,7 +29,11 @@ const Header = () => {
           <>
             <StyledLink to='/carts'>
               <BsCart4 />
-              <span className='cartsNum'>{data?.productsInCart?.length}</span>
+              <span className='cartsNum'>
+                {productsDB?.productsInCart
+                  ? productsDB?.productsInCart.length
+                  : 0}
+              </span>
             </StyledLink>
             <StyledLink to='/bookmark'>
               <BsBookmarkHeart />

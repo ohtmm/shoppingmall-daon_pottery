@@ -1,15 +1,18 @@
 import { useContext } from 'react';
 import Button from '../../components/Button';
 import { ProductsContext } from '../../lib/context/productsContext';
+import setLocalStorage from '../../lib/utils/setLocalStorage';
 import { CartContainer, CartItem } from './StyledComponents';
 
 const UserCart = () => {
   const data = useContext(ProductsContext);
   const handleDelete = (id: string) => {
-    const deleted = data?.productsInCart?.filter((product) => {
+    const updated = data?.productsInCart?.filter((product) => {
       return product.id !== id;
     });
-    data?.setProductsInCart(deleted!);
+    localStorage.removeItem('cart');
+    updated && setLocalStorage(updated);
+    updated && data?.setProductsInCart(updated);
   };
   return (
     <CartContainer>

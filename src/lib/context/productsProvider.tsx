@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { TProduct } from '../../pages/Products/NewProducts/NewProducts';
 import { useEffect } from 'react';
 import { RepositoryImpl } from '../../api/repository';
+import getLocalStorage from '../utils/getLocalStorage';
 
 const repo = new RepositoryImpl();
 
@@ -12,6 +13,7 @@ const ProductProvider = ({ children }: ContextProviderProps) => {
   const [productsInCart, setProductsInCart] = useState<TProduct[] | null>([]);
   useEffect(() => {
     repo.readData(setProductsDB);
+    setProductsInCart(getLocalStorage());
   }, []);
 
   const data = {
