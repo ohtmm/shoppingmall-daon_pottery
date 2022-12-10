@@ -18,7 +18,7 @@ export const NewProductsContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     margin: 3rem 2rem;
-    width: 20rem;
+    width: 24rem;
     height: 10rem;
   }
 
@@ -50,9 +50,6 @@ export const NewProductsContainer = styled.div`
   }
 
   .uploadedImg {
-    position: absolute;
-    left: 1rem;
-    top: 4rem;
     width: 10rem;
     height: 10rem;
     img {
@@ -60,6 +57,19 @@ export const NewProductsContainer = styled.div`
       width: 100%;
       height: 100%;
       border-radius: 20px;
+    }
+  }
+
+  .selectBox {
+    display: flex;
+    align-items: center;
+    width: 21rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    label {
+      width: 6rem;
+      font-size: small;
+      color: ${(props) => props.theme.color.white};
     }
   }
 `;

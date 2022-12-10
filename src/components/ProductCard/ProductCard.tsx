@@ -18,11 +18,7 @@ const ProductCard = ({
 }: TProductCard) => {
   const navigator = useNavigate();
   const handleClick = (productId?: string) => {
-    navigator(`products/base/${productId}`, {
-      state: {
-        id: productId,
-      },
-    });
+    navigator(`/products/base/${productId}`);
   };
   return (
     <ProductCardContainer

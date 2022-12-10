@@ -7,8 +7,8 @@ import { CategorizedContainer } from './StyleComponents';
 
 const Products = () => {
   const { category } = useParams<{ category: string }>();
-  const products = useContext(ProductsContext);
-  const sorted = sortProducts(products, category);
+  const data = useContext(ProductsContext);
+  const sorted = sortProducts(data?.productsDB, category);
   return (
     <CategorizedContainer>
       <ProductCards products={sorted} categorized />

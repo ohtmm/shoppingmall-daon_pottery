@@ -34,6 +34,7 @@ const ProductCards = ({ products, categorized }: TProductCards) => {
             return (
               <ProductCard
                 key={product.id}
+                productId={product.id}
                 productImg={product.photoURL}
                 productName={product.name}
                 productDescription={product.description}

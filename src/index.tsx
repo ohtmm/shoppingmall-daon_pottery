@@ -10,12 +10,10 @@ import AuthProvider from './lib/context/authProvider';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { LightTheme } from './styles/theme';
-import UserCart from './pages/UserCart';
+import UserCart from './pages/UserCart/UserCart';
 import NewProducts from './pages/Products/NewProducts/NewProducts';
 import ProductProvider from './lib/context/productsProvider';
 import ProductDetail from './pages/Products/ProductDetail/ProductDetail';
-
-// privateRoute 공통 설정 어떻게 하지?
 
 const router = createBrowserRouter([
   {

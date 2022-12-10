@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import ProductCards from '../../components/ProductCards/ProductCards';
+import SkeletonCards from '../../components/Skeleton/SkeletonCards';
 import { ProductsContext } from '../../lib/context/productsContext';
 import { sortProducts } from '../../lib/utils/sortProducts';
-import { TProduct } from '../Products/NewProducts/NewProducts';
 import {
   HomeContents,
   HomeLayout,
@@ -10,10 +10,10 @@ import {
 } from './StyleComponents';
 
 const Home = () => {
-  const products = useContext(ProductsContext);
-  const bases = sortProducts(products, 'base');
-  const mugs = sortProducts(products, 'mug');
-  const bowls = sortProducts(products, 'bowl');
+  const data = useContext(ProductsContext);
+  const bases = sortProducts(data?.productsDB, 'base');
+  const mugs = sortProducts(data?.productsDB, 'mug');
+  const bowls = sortProducts(data?.productsDB, 'bowl');
   return (
     <HomeLayout>
       <HomeContents>
@@ -23,9 +23,12 @@ const Home = () => {
         <img src='./images/main_potter2.jpg' alt='potter ' />
       </HomeContents>
       <ProductCardsContainer>
-        <ProductCards products={bases} />
-        <ProductCards products={mugs} />
-        <ProductCards products={bowls} />
+        {!data?.productsDB && <SkeletonCards />}
+        {!data?.productsDB && <SkeletonCards />}
+        {!data?.productsDB && <SkeletonCards />}
+        {bases && <ProductCards products={bases} />}
+        {mugs && <ProductCards products={mugs} />}
+        {bowls && <ProductCards products={bowls} />}
       </ProductCardsContainer>
     </HomeLayout>
   );

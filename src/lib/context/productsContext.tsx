@@ -1,5 +1,11 @@
-import React, { SetStateAction } from 'react';
-import { Dispatch } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { TProduct } from '../../pages/Products/NewProducts/NewProducts';
 
-export const ProductsContext = React.createContext<TProduct[] | null>(null);
+export type TProductsContext = {
+  productsDB: TProduct[] | null;
+  productsInCart: TProduct[] | null;
+  setProductsInCart: React.Dispatch<SetStateAction<TProduct[] | null>>;
+};
+export const ProductsContext = React.createContext<TProductsContext | null>(
+  null
+);

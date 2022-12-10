@@ -3,8 +3,6 @@ import setStorage from '../../../service/db/setStorage';
 import { v4 as uuid } from 'uuid';
 import setDatabase from '../../../service/db/setDatabase';
 import { NewProductsContainer } from './StyleComponents';
-import { useContext } from 'react';
-import { ProductsContext } from '../../../lib/context/productsContext';
 
 export type TimageUploaded = File | null;
 export type TProduct = {
@@ -16,8 +14,7 @@ export type TProduct = {
   category?: string;
 };
 const NewProducts = () => {
-  const value = useContext(ProductsContext);
-  const [uploading, setUploading] = useState(false);
+  const [isAddReady, setIsAddReady] = useState(false);
   const [product, setProduct] = useState<TProduct | null>(initialized);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +27,6 @@ const NewProducts = () => {
   };
 
   const handleAddImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUploading(true);
     if (e.target.files) {
       setStorage(e.target.files[0])
         .then((url) => {
@@ -38,7 +34,7 @@ const NewProducts = () => {
           setProduct(uploaded);
         })
         .catch((e) => console.log(`이미지를 찾을 수 없습니다`, e))
-        .finally(() => setUploading(false));
+        .finally(() => setIsAddReady(true));
     }
   };
 
@@ -78,14 +74,29 @@ const NewProducts = () => {
           onChange={handleInput}
           required
         />
-        <select onChange={handleSelect} value={product?.category}>
-          <option defaultChecked value='none'>
-            none
-          </option>
-          <option value='mug'>mug</option>
-          <option value='base'>base</option>
-          <option value='bowl'>bowl</option>
-        </select>
+        <div className='selectBox'>
+          <label id='category'>카테고리</label>
+          <select
+            id='category'
+            onChange={handleSelect}
+            value={product?.category}
+          >
+            <option defaultChecked value='none'>
+              none
+            </option>
+            <option value='mug'>mug</option>
+            <option value='base'>base</option>
+            <option value='bowl'>bowl</option>
+          </select>
+          <input
+            type='file'
+            id='image'
+            accept='image/*'
+            required
+            onChange={handleAddImage}
+            className='imageUploader'
+          />
+        </div>
         <input
           type='textarea'
           name='description'
@@ -95,16 +106,7 @@ const NewProducts = () => {
           required
         />
 
-        <input
-          type='file'
-          id='image'
-          accept='image/*'
-          required
-          onChange={handleAddImage}
-          className='imageUploader'
-        />
-
-        {!uploading && <button type='submit'>등록</button>}
+        {isAddReady && <button type='submit'>등록</button>}
       </form>
     </NewProductsContainer>
   );

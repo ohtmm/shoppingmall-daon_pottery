@@ -9,13 +9,18 @@ const repo = new RepositoryImpl();
 
 const ProductProvider = ({ children }: ContextProviderProps) => {
   const [productsDB, setProductsDB] = useState<TProduct[] | null>(null);
+  const [productsInCart, setProductsInCart] = useState<TProduct[] | null>([]);
   useEffect(() => {
     repo.readData(setProductsDB);
   }, []);
+
+  const data = {
+    productsDB,
+    productsInCart,
+    setProductsInCart,
+  };
   return (
-    <ProductsContext.Provider value={productsDB}>
-      {children}
-    </ProductsContext.Provider>
+    <ProductsContext.Provider value={data}>{children}</ProductsContext.Provider>
   );
 };
 

@@ -8,7 +8,7 @@ export const LightTheme: DefaultTheme = {
     darkBlack: '#161010f3',
     darkGray: '#434343',
     white: '#fff',
-    green: '#fff',
+    lightGray: '#e6e5e5',
     darkPink: '#be00009f',
     deepOrange: '#fa6b12cc',
   },

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import AuthProvider from '../../lib/context/authProvider';
 
 // Header
 export const HeaderContainer = styled.header`
@@ -38,34 +39,21 @@ export const ProductsCategory = styled.ul`
   }
 `;
 
-// export const CategorySub = styled.ul`
-//   list-style: none;
-//   font-size: small;
-//   opacity: 0;
-//   transition: all 0.5s linear;
-//   :hover {
-//     opacity: 1;
-//   }
-//   li {
-//     height: 1rem;
-//     margin-bottom: 0.5rem;
-//     padding: 0.5rem;
-//     color: #222;
-//     background-color: #${(props) => props.theme.color.white};
-//     border-radius: 20px;
-//     :hover {
-//       background-color: ${(props) => props.theme.color.black};
-//       color: ${(props) => props.theme.color.white};
-//     }
-//   }
-// `;
-
 export const UserNav = styled.nav`
   display: flex;
   justify-content: space-around;
   width: 14rem;
   margin-right: 2rem;
   font-size: x-large;
+  .cartsNum {
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    font-size: 5px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: ${(props) => props.theme.color.deepOrange};
+  }
 `;
 
 export const UserAvatar = styled.div`
@@ -82,7 +70,7 @@ export const UserAvatar = styled.div`
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 100%;
-    outline: 1px solid #222;
+    outline: 1px solid rgb(34, 34, 34);
     outline-offset: 1px;
   }
 `;
