@@ -1,5 +1,6 @@
 ## React로 제작한 테이블 웨어 쇼핑몰 'potter'
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/108715216/208245200-885c5551-56a7-45f4-8748-e7315dbea6ae.gif)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/108715216/208245295-19d85a0d-534c-421a-86c8-e8e80917dfe1.gif)
+
 
 
 ## 0. 주요 기능 | 로드맵
