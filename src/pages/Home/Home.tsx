@@ -1,6 +1,6 @@
-import { useContext } from 'react';
 import ProductCards from '../../components/ProductCards/ProductCards';
 import SkeletonCards from '../../components/Skeleton/SkeletonCards';
+import useMainImages from '../../lib/hooks/useMainImage';
 import useProducts from '../../lib/hooks/useProducts';
 import { sortProducts } from '../../lib/utils/sortProducts';
 import {
@@ -11,16 +11,19 @@ import {
 
 const Home = () => {
   const { products, isLoading } = useProducts();
+  const { mainImages, isLoading: ImagesLoading } = useMainImages();
   const bases = sortProducts(products, 'base');
   const mugs = sortProducts(products, 'mug');
   const bowls = sortProducts(products, 'bowl');
+
   return (
     <HomeLayout>
       <HomeContents>
-        <img src='./images/main_hands.jpg' alt='hands' />
-        <img src='./images/main_hands2.jpg' alt='hands' />
-        <img src='./images/main_potter.jpg' alt='potter ' />
-        <img src='./images/main_potter2.jpg' alt='potter ' />
+        {ImagesLoading && <p>loading now...</p>}
+        {mainImages &&
+          mainImages.map((img, idx) => {
+            return <img key={idx} src={img.url} alt={img.name} />;
+          })}
       </HomeContents>
 
       <ProductCardsContainer>

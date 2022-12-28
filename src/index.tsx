@@ -44,7 +44,6 @@ root.render(
           <RouterProvider router={router} />
         </ThemeProvider>
       </AuthProvider>
-      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   </React.StrictMode>
 );

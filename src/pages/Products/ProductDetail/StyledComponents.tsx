@@ -24,7 +24,8 @@ export const ProductDetailContainer = styled.div`
 
   img {
     display: block;
-    width: 40%;
+    width: 500px;
+    height: 500px;
   }
 
   .productInfo {

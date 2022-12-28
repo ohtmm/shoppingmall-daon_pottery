@@ -59,3 +59,10 @@ export async function setNewProduct(newProduct: TProduct) {
   const currentProducst = await getProductsAll();
   return set(ref(database, `/products/${currentProducst.length}`), newProduct);
 }
+
+export async function getMainImages() {
+  return get(ref(database, 'main')).then((snapshot) => {
+    const items = snapshot.val();
+    return items;
+  });
+}
