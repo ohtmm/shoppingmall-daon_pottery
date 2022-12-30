@@ -15,7 +15,6 @@ const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const user = useContext(AuthContext);
   const { addItem } = useCart();
-
   const { products } = useProducts();
   const selected = products?.filter((product) => product.id === id);
   const other = products?.filter((product) => product.id !== id);
@@ -42,10 +41,13 @@ const ProductDetail = () => {
             <h2 className='name'>{product.name}</h2>
             <span className='price'>{product.price} 원</span>
             <p className='desc'>{product.description}</p>
+
             {!isAddedCart ? (
-              <button className='btn cart' onClick={handleAddCart}>
-                장바구니
-              </button>
+              user && (
+                <button className='btn cart' onClick={handleAddCart}>
+                  장바구니
+                </button>
+              )
             ) : (
               <button className='btn cart' disabled>
                 이미 장바구니에!

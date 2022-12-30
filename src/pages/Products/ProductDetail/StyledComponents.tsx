@@ -4,7 +4,7 @@ export const DetailContainer = styled.section`
   display: flex;
 
   @media screen and (max-width: 500px) {
-    width: 500px;
+    width: 100%;
     flex-wrap: wrap;
   }
 `;
@@ -32,14 +32,16 @@ export const ProductDetailContainer = styled.div`
   background-color: ${(props) => props.theme.color.darkBlack};
 
   @media screen and (max-width: 500px) {
-    width: 420px;
+    width: 500px;
     flex-wrap: wrap;
     justify-content: center;
+
+    padding: 1rem;
   }
 
   img {
     display: block;
-    width: 500px;
+    width: 400px;
     height: 500px;
   }
 

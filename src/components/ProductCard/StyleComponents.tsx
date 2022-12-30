@@ -10,9 +10,9 @@ export const ProductCardContainer = styled.div`
     transform: scale(1.02);
   }
   @media screen and (max-width: 500px) {
-    width: 95%;
+    width: 92%;
     height: 600px;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
   .productImg {
     display: block;
@@ -21,7 +21,7 @@ export const ProductCardContainer = styled.div`
     cursor: pointer;
     @media screen and (max-width: 500px) {
       width: 100%;
-      height: 80%;
+      height: 440px;
       margin: 0 auto;
     }
   }
