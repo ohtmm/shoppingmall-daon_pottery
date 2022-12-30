@@ -2,9 +2,13 @@ import styled from 'styled-components';
 
 export const HomeLayout = styled.section`
   display: flex;
-  width: 100%;
+  width: 1020px;
   height: 100%;
   padding: 0 0 1rem 0rem;
+  @media screen and (max-width: 500px) {
+    width: 500px;
+    height: 1200px;
+  }
 `;
 
 export const HomeContents = styled.article`
@@ -23,6 +27,9 @@ export const HomeContents = styled.article`
     content: '';
     background-color: #111010a9;
   }
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const ProductCardsContainer = styled.article`
@@ -30,4 +37,10 @@ export const ProductCardsContainer = styled.article`
   grid-template-columns: repeat(3, 1fr);
   width: 70%;
   border-right: 1px solid #000;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: none;
+  }
 `;

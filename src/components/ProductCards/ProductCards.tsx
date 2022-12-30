@@ -2,7 +2,7 @@ import { TProduct } from '../../pages/Products/NewProducts/NewProducts';
 import ProductCard from '../ProductCard/ProductCard';
 import {
   CategorizedCardContainer,
-  ProductCardContainer,
+  HomeProductContainer,
 } from './StyleComponents';
 
 type TProductCards = {
@@ -14,7 +14,7 @@ const ProductCards = ({ products, categorized }: TProductCards) => {
   return (
     <>
       {!categorized ? (
-        <ProductCardContainer>
+        <HomeProductContainer>
           {products?.map((product) => {
             return (
               <ProductCard
@@ -27,7 +27,7 @@ const ProductCards = ({ products, categorized }: TProductCards) => {
               />
             );
           })}
-        </ProductCardContainer>
+        </HomeProductContainer>
       ) : (
         <CategorizedCardContainer>
           {products?.map((product) => {

@@ -24,6 +24,10 @@ export const CartContainer = styled.ul`
     outline-offset: 2px;
     background-color: ${(props) => props.theme.color.deepOrange};
     border-radius: 10px;
+
+    @media screen and (max-width: 500px) {
+      left: 0;
+    }
   }
 
   h2 {
@@ -47,6 +51,10 @@ export const CartItem = styled.li`
   border-radius: 10px;
   background-color: ${(props) => props.theme.color.white};
 
+  @media screen and (max-width: 500px) {
+    margin-top: 5rem;
+    width: 85%;
+  }
   img {
     display: block;
     width: 8rem;
@@ -69,5 +77,9 @@ export const CartItem = styled.li`
     height: 60%;
     padding-left: 0.5rem;
     border-left: 1px solid ${(props) => props.theme.color.deepOrange};
+    @media screen and (max-width: 500px) {
+      border-left: none;
+      bottom: 0;
+    }
   }
 `;

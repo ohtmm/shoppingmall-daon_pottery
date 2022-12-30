@@ -2,16 +2,28 @@ import styled from 'styled-components';
 
 export const ProductCardContainer = styled.div`
   width: 100%;
+  height: 500px;
   padding: 1rem;
   box-sizing: border-box;
   transition: all 0.5s linear;
   :hover {
     transform: scale(1.02);
   }
+  @media screen and (max-width: 500px) {
+    width: 95%;
+    height: 600px;
+    margin: 0 auto;
+  }
   .productImg {
     display: block;
     width: 100%;
+    height: 360px;
     cursor: pointer;
+    @media screen and (max-width: 500px) {
+      width: 100%;
+      height: 80%;
+      margin: 0 auto;
+    }
   }
   .desc {
     width: 80%;
@@ -47,5 +59,3 @@ export const ProductCardContainer = styled.div`
     cursor: pointer;
   }
 `;
-
-//

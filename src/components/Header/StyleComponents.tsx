@@ -5,10 +5,14 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 4rem;
   border-bottom: 1px solid ${(props) => props.theme.color.darkBlack};
   color: ${(props) => props.theme.color.white};
   background-color: ${(props) => props.theme.color.darkBlack};
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const Logo = styled.h1`
@@ -25,6 +29,7 @@ export const ProductsCategory = styled.ul`
   align-items: center;
   list-style: none;
   cursor: pointer;
+
   li {
     margin-right: 1rem;
     transition: all 0.5s linear;
@@ -34,6 +39,23 @@ export const ProductsCategory = styled.ul`
       color: ${(props) => props.theme.color.vanilla};
       text-decoration: underline;
     }
+    @media screen and (max-width: 500px) {
+      width: 100%;
+      text-align: left;
+      font-size: large;
+      color: ${(props) => props.theme.color.darkBlack};
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    z-index: 1000;
+    position: fixed;
+    width: 40px;
+    flex-wrap: wrap;
+    top: 3rem;
+    left: 0;
+    background-color: #fff;
+    border-bottom: 2px solid ${(props) => props.theme.color.darkBlack};
   }
 `;
 
