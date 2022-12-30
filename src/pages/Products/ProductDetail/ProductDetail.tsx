@@ -1,7 +1,8 @@
 import { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ProductsContext } from '../../../lib/context/productsContext';
-import setLocalStorage from '../../../lib/utils/setLocalStorage';
+import { AuthContext } from '../../../lib/context/authContext';
+import useProducts from '../../../lib/hooks/useProducts';
+import useCart from '../../../lib/hooks/useCart';
 import {
   DetailContainer,
   DetailSider,
@@ -10,19 +11,22 @@ import {
 } from './StyledComponents';
 
 const ProductDetail = () => {
-  const { id } = useParams<{ id: string }>();
   const [isAddedCart, setIsAddedCart] = useState(false);
-  const data = useContext(ProductsContext);
-  const selected = data?.productsDB?.filter((product) => product.id === id);
-  const other = data?.productsDB?.filter((product) => product.id !== id);
+  const { id } = useParams<{ id: string }>();
+  const user = useContext(AuthContext);
+  const { addItem } = useCart();
+
+  const { products } = useProducts();
+  const selected = products?.filter((product) => product.id === id);
+  const other = products?.filter((product) => product.id !== id);
+
   const handleAddCart = () => {
     setIsAddedCart((prev) => !prev);
-    if (selected) {
-      setLocalStorage(selected);
-      const updated = data?.productsInCart?.concat(selected);
-      data?.setProductsInCart(updated!);
+    if (selected && user) {
+      addItem.mutate(selected[0]);
     }
   };
+
   return (
     <DetailContainer>
       {selected?.map((product) => (

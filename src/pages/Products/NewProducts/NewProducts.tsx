@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import setStorage from '../../../service/db/setStorage';
 import { v4 as uuid } from 'uuid';
-import setDatabase from '../../../service/db/setDatabase';
+import useProducts from '../../../lib/hooks/useProducts';
+import { setCloudinary } from '../../../service/storage/setCloudinary';
 import { NewProductsContainer } from './StyleComponents';
 
 export type TimageUploaded = File | null;
@@ -16,19 +16,21 @@ export type TProduct = {
 const NewProducts = () => {
   const [isAddReady, setIsAddReady] = useState(false);
   const [product, setProduct] = useState<TProduct | null>(initialized);
+  const { addNewProduct } = useProducts();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const regist = {
       ...product,
       id: uuid(),
     };
-    setDatabase(regist);
+    addNewProduct.mutate(regist);
     setProduct(initialized);
   };
 
   const handleAddImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setStorage(e.target.files[0])
+      setCloudinary(e.target.files[0])
         .then((url) => {
           const uploaded = { ...product, photoURL: url };
           setProduct(uploaded);

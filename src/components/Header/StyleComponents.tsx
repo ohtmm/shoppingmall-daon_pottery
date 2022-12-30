@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import AuthProvider from '../../lib/context/authProvider';
 
-// Header
 export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;

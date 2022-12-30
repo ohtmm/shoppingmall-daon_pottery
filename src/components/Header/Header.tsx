@@ -1,9 +1,9 @@
 import { useContext } from 'react';
+import useCart from '../../lib/hooks/useCart';
 import { BsCart4, BsBookmarkHeart } from 'react-icons/bs';
 import { RiAddBoxLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../lib/context/authContext';
-import { ProductsContext } from '../../lib/context/productsContext';
 import { SignInGoogle, SignOut } from '../../service/auth/signInGoogle';
 import Category from '../Category';
 import {
@@ -17,7 +17,7 @@ import {
 
 const Header = () => {
   const user = useContext(AuthContext);
-  const productsDB = useContext(ProductsContext);
+  const { cartItems } = useCart();
   return (
     <HeaderContainer>
       <Link to='/' style={{ textDecoration: 'none' }}>
@@ -30,9 +30,7 @@ const Header = () => {
             <StyledLink to='/carts'>
               <BsCart4 />
               <span className='cartsNum'>
-                {productsDB?.productsInCart
-                  ? productsDB?.productsInCart.length
-                  : 0}
+                {cartItems ? cartItems.length : 0}
               </span>
             </StyledLink>
             <StyledLink to='/bookmark'>

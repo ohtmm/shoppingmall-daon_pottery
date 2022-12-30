@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home/Home';
@@ -12,9 +12,11 @@ import { ThemeProvider } from 'styled-components';
 import { LightTheme } from './styles/theme';
 import UserCart from './pages/UserCart/UserCart';
 import NewProducts from './pages/Products/NewProducts/NewProducts';
-import ProductProvider from './lib/context/productsProvider';
 import ProductDetail from './pages/Products/ProductDetail/ProductDetail';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
+const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: '/',
@@ -35,13 +37,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <ProductProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
         <ThemeProvider theme={LightTheme}>
           <GlobalStyle />
           <RouterProvider router={router} />
         </ThemeProvider>
-      </ProductProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

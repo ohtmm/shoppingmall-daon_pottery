@@ -1,24 +1,17 @@
-import { useContext } from 'react';
 import Button from '../../components/Button';
-import { ProductsContext } from '../../lib/context/productsContext';
-import setLocalStorage from '../../lib/utils/setLocalStorage';
+import useCart from '../../lib/hooks/useCart';
 import { CartContainer, CartItem } from './StyledComponents';
 
 const UserCart = () => {
-  const data = useContext(ProductsContext);
+  const { cartItems, removeItem } = useCart();
   const handleDelete = (id: string) => {
-    const updated = data?.productsInCart?.filter((product) => {
-      return product.id !== id;
-    });
-    localStorage.removeItem('cart');
-    updated && setLocalStorage(updated);
-    updated && data?.setProductsInCart(updated);
+    removeItem.mutate(id);
   };
   return (
     <CartContainer>
       <h1>Cart</h1>
-      {!data?.productsInCart?.length && <h2>장바구니가 비었습니다</h2>}
-      {data?.productsInCart?.map((product) => {
+      {!cartItems?.length && <h2>장바구니가 비었습니다</h2>}
+      {cartItems?.map((product) => {
         return (
           <CartItem key={product.id}>
             {product?.photoURL && (
