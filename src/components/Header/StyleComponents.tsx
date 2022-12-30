@@ -10,8 +10,9 @@ export const HeaderContainer = styled.header`
   border-bottom: 1px solid ${(props) => props.theme.color.darkBlack};
   color: ${(props) => props.theme.color.white};
   background-color: ${(props) => props.theme.color.darkBlack};
+  overflow: hidden;
   @media screen and (max-width: 500px) {
-    width: 100%;
+    width: 500px;
   }
 `;
 

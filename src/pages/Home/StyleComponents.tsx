@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const HomeLayout = styled.section`
   display: flex;
-  width: 1020px;
-  height: 100%;
+  width: 100%;
   padding: 0 0 1rem 0rem;
   @media screen and (max-width: 500px) {
     width: 500px;
-    height: 1200px;
+    height: 2000px;
   }
 `;
 
