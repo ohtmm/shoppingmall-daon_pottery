@@ -1,9 +1,6 @@
 import { TProduct } from '../../pages/Products/NewProducts/NewProducts';
 import ProductCard from '../ProductCard/ProductCard';
-import {
-  CategorizedCardContainer,
-  HomeProductContainer,
-} from './StyleComponents';
+import { CategorizedCardContainer, HomeProductContainer } from './style';
 
 type TProductCards = {
   products?: TProduct[] | null;

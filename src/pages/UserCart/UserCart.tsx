@@ -1,11 +1,20 @@
 import Button from '../../components/Button';
 import useCart from '../../lib/hooks/useCart';
-import { CartContainer, CartItem } from './StyledComponents';
+import { TProduct } from '../Products/NewProducts/NewProducts';
+import { CartContainer, CartItem } from './style';
 
 const UserCart = () => {
-  const { cartItems, removeItem } = useCart();
+  const { cartItems, removeItem, updateItem } = useCart();
   const handleDelete = (id: string) => {
     removeItem.mutate(id);
+  };
+
+  const handleAdd = (product: TProduct) => {
+    const added = {
+      ...product,
+      quantity: product.quantity! + 1,
+    };
+    updateItem.mutate(added);
   };
   return (
     <CartContainer>
@@ -26,11 +35,16 @@ const UserCart = () => {
                 {product.price} 원
               </div>
               <div>
-                <span className='label'>수량: </span>1
+                <span className='label'>수량: </span> {product.quantity}
               </div>
             </div>
             <div className='buttonBox'>
-              <Button btnName='추가' />
+              <Button
+                btnName='추가'
+                callback={() => {
+                  handleAdd(product);
+                }}
+              />
               <Button
                 btnName='삭제'
                 callback={() => {

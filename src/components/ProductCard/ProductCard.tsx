@@ -1,4 +1,4 @@
-import { ProductCardContainer } from './StyleComponents';
+import { ProductCardContainer } from './style';
 import { BsBookmarkHeart } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 type TProductCard = {

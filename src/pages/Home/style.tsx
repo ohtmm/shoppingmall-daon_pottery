@@ -38,6 +38,7 @@ export const ProductCardsContainer = styled.article`
   border-right: 1px solid #000;
   @media screen and (max-width: 500px) {
     width: 100%;
+    height: 4000px;
     display: flex;
     flex-wrap: wrap;
     border: none;

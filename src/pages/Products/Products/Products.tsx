@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import ProductCards from '../../../components/ProductCards/ProductCards';
-import { CategorizedContainer } from './StyleComponents';
+import { CategorizedContainer } from './style';
 import useProducts from '../../../lib/hooks/useProducts';
 
 const Products = () => {

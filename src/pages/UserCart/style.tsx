@@ -9,6 +9,10 @@ export const CartContainer = styled.ul`
   padding-top: 2rem;
   padding-bottom: 2rem;
   background-color: ${(props) => props.theme.color.darkBlack};
+  @media screen and (max-width: 500px) {
+    width: 493px;
+    padding-left: 0.5rem;
+  }
 
   h1 {
     position: absolute;
@@ -25,7 +29,7 @@ export const CartContainer = styled.ul`
     background-color: ${(props) => props.theme.color.deepOrange};
     border-radius: 10px;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 480px) {
       left: 0;
     }
   }
@@ -52,8 +56,12 @@ export const CartItem = styled.li`
   background-color: ${(props) => props.theme.color.white};
 
   @media screen and (max-width: 500px) {
-    margin-top: 5rem;
-    width: 85%;
+    margin: 0 auto;
+    width: 90%;
+
+    :nth-of-type(1) {
+      margin-top: 6rem;
+    }
   }
   img {
     display: block;
@@ -77,7 +85,7 @@ export const CartItem = styled.li`
     height: 60%;
     padding-left: 0.5rem;
     border-left: 1px solid ${(props) => props.theme.color.deepOrange};
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 480px) {
       border-left: none;
       bottom: 0;
     }

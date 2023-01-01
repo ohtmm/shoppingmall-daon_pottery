@@ -13,7 +13,7 @@ import {
   StyledLink,
   UserAvatar,
   UserNav,
-} from './StyleComponents';
+} from './style';
 
 const Header = () => {
   const user = useContext(AuthContext);
@@ -32,9 +32,6 @@ const Header = () => {
               <span className='cartsNum'>
                 {cartItems ? cartItems.length : 0}
               </span>
-            </StyledLink>
-            <StyledLink to='/bookmark'>
-              <BsBookmarkHeart />
             </StyledLink>
           </>
         )}

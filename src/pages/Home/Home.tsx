@@ -3,11 +3,7 @@ import SkeletonCards from '../../components/Skeleton/SkeletonCards';
 import useMainImages from '../../lib/hooks/useMainImage';
 import useProducts from '../../lib/hooks/useProducts';
 import { sortProducts } from '../../lib/utils/sortProducts';
-import {
-  HomeContents,
-  HomeLayout,
-  ProductCardsContainer,
-} from './StyleComponents';
+import { HomeContents, HomeLayout, ProductCardsContainer } from './style';
 
 const Home = () => {
   const { products, isLoading } = useProducts();
@@ -19,7 +15,7 @@ const Home = () => {
   return (
     <HomeLayout>
       <HomeContents>
-        {ImagesLoading && <p>loading now...</p>}
+        {ImagesLoading && <p>loading ...</p>}
         {mainImages &&
           mainImages.map((img, idx) => {
             return <img key={idx} src={img.url} alt={img.name} />;

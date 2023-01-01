@@ -12,8 +12,8 @@ function App() {
 }
 
 const Wrap = styled.div`
-  @media screen and (max-width: 500px) {
-    min-width: 500px;
+  @media screen and (max-width: 480px) {
+    max-width: 480px;
     display: flex;
     flex-wrap: wrap;
   }
