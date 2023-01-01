@@ -32,7 +32,7 @@ export const ProductDetailContainer = styled.div`
   background-color: ${(props) => props.theme.color.darkBlack};
 
   @media screen and (max-width: 500px) {
-    width: 500px;
+    width: 480px;
     flex-wrap: wrap;
     justify-content: center;
 
@@ -53,6 +53,7 @@ export const ProductDetailContainer = styled.div`
     @media screen and (max-width: 500px) {
       margin-left: 0;
       height: 400px;
+      width: 92%;
     }
 
     .name {
@@ -70,6 +71,9 @@ export const ProductDetailContainer = styled.div`
       font-size: large;
       border-bottom: 1px solid #fff;
       color: ${(props) => props.theme.color.white};
+      @media screen and (max-width: 500px) {
+        width: 26rem;
+      }
     }
     .desc {
       position: absolute;
@@ -82,6 +86,9 @@ export const ProductDetailContainer = styled.div`
       font-weight: 600;
       background-color: ${(props) => props.theme.color.white};
       font-size: medium;
+      @media screen and (max-width: 500px) {
+        width: 80%;
+      }
     }
 
     .btn {
@@ -98,11 +105,17 @@ export const ProductDetailContainer = styled.div`
       :hover {
         background-color: ${(props) => props.theme.color.deepOrange};
       }
+      @media screen and (max-width: 500px) {
+        right: 2rem;
+      }
     }
 
     .cart {
       right: 6.5rem;
       background-color: ${(props) => props.theme.color.brown};
+      @media screen and (max-width: 500px) {
+        right: 8rem;
+      }
     }
   }
 `;

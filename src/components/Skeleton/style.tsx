@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ProductCardContainer } from '../ProductCard/StyleComponents';
+import { ProductCardContainer } from '../ProductCard/style';
 
 export const SkeletonContainer = styled(ProductCardContainer)`
   @keyframes loading {

@@ -1,4 +1,4 @@
-import { SkeletonContainer } from './StyledComponents';
+import { SkeletonContainer } from './style';
 
 const Skeleton = () => {
   return (

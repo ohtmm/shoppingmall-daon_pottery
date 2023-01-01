@@ -16,13 +16,13 @@ export const ProductCardContainer = styled.div`
   }
   .productImg {
     display: block;
-    width: 100%;
+    width: 97%;
     height: 360px;
     cursor: pointer;
     @media screen and (max-width: 500px) {
-      width: 100%;
+      width: 90%;
       height: 440px;
-      margin: 0 auto;
+      margin: 1rem auto;
     }
   }
   .desc {
@@ -30,9 +30,16 @@ export const ProductCardContainer = styled.div`
     border-top: 1px solid ${(props) => props.theme.color.brown};
     padding-top: 1rem;
     font-size: small;
+    @media screen and (max-width: 500px) {
+      padding-left: 1rem;
+      font-size: medium;
+    }
   }
   .title {
     position: relative;
+    @media screen and (max-width: 500px) {
+      padding-left: 1rem;
+    }
   }
 
   .price {

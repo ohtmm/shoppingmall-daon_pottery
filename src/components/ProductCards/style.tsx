@@ -6,10 +6,9 @@ export const HomeProductContainer = styled.div`
   border-left: 1px solid ${(props) => props.theme.color.black};
 
   @media screen and (max-width: 500px) {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     width: 100%;
-    height: 1200px;
+    height: fit-content;
   }
 `;
 

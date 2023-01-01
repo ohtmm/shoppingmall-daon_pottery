@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import useProducts from '../../../lib/hooks/useProducts';
 import { setCloudinary } from '../../../service/storage/setCloudinary';
-import { NewProductsContainer } from './StyleComponents';
+import { NewProductsContainer } from './style';
 
 export type TimageUploaded = File | null;
 export type TProduct = {

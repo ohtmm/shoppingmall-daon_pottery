@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ProductsCategory } from './Header/StyleComponents';
+import { ProductsCategory } from './Header/style';
 
 const Category = () => {
   return (
