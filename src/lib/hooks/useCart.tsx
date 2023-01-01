@@ -1,6 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useContext } from 'react';
-import { getUserCart, removeCartItem, setUserCart } from '../../api/firebase';
+import {
+  getUserCart,
+  removeCartItem,
+  setUserCart,
+  updateCartItem,
+} from '../../api/firebase';
 import { TProduct } from '../../pages/Products/NewProducts/NewProducts';
 import { AuthContext } from '../context/authContext';
 
@@ -25,5 +30,12 @@ export default function useCart() {
       onSuccess: () => queryCleint.invalidateQueries(['carts', user?.uid]),
     }
   );
-  return { cartItems, removeItem, addItem };
+
+  const updateItem = useMutation(
+    (updated: TProduct) => updateCartItem(user?.uid!, updated),
+    {
+      onSuccess: () => queryCleint.invalidateQueries(['carts', user?.uid]),
+    }
+  );
+  return { cartItems, removeItem, addItem, updateItem };
 }

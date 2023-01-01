@@ -12,6 +12,7 @@ export type TProduct = {
   description?: string;
   photoURL?: string | null;
   category?: string;
+  quantity?: number;
 };
 const NewProducts = () => {
   const [isAddReady, setIsAddReady] = useState(false);
@@ -115,11 +116,12 @@ const NewProducts = () => {
 };
 export default NewProducts;
 
-const initialized = {
+const initialized: TProduct = {
   id: '',
   name: '',
   price: 0,
   description: '',
   photoURL: '',
   category: 'none',
+  quantity: 1,
 };

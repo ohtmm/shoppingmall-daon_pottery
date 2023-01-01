@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, User } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
-import { getDatabase, ref, get, set, remove } from 'firebase/database';
+import { getDatabase, ref, get, set, remove, update } from 'firebase/database';
 import { updatedUser } from '../lib/context/authProvider';
 import { TProduct } from '../pages/Products/NewProducts/NewProducts';
 
@@ -46,6 +46,13 @@ export async function getUserCart(uid?: string): Promise<TProduct[]> {
 
 export async function removeCartItem(uid: string, productId: string) {
   return remove(ref(database, `carts/${uid}/${productId}`));
+}
+
+export async function updateCartItem(uid: string, updatedProduct: TProduct) {
+  return update(
+    ref(database, `carts/${uid}/${updatedProduct.id}`),
+    updatedProduct
+  );
 }
 
 export async function getProductsAll(): Promise<TProduct[]> {

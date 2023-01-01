@@ -8,7 +8,8 @@ import {
   DetailSider,
   OtherProduct,
   ProductDetailContainer,
-} from './StyledComponents';
+} from './style';
+import { TProduct } from '../NewProducts/NewProducts';
 
 const ProductDetail = () => {
   const [isAddedCart, setIsAddedCart] = useState(false);
@@ -22,7 +23,11 @@ const ProductDetail = () => {
   const handleAddCart = () => {
     setIsAddedCart((prev) => !prev);
     if (selected && user) {
-      addItem.mutate(selected[0]);
+      const cartItem: TProduct = {
+        ...selected[0],
+        quantity: 1,
+      };
+      addItem.mutate(cartItem);
     }
   };
 
